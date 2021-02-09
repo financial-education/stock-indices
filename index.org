@@ -1,0 +1,55 @@
+#+title: Stock Market Indices
+#+author: Matt Brigida, Ph.D.
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+Here we'll take a look at price and value-weighted stock indices. Say our index covers two stocks (A and B) with the following number of shares outstanding.
+
+#+TBLNAME: shares
+| Stock | Shares Outstanding |
+|-------+--------------------|
+| A     |                 50 |
+| B     |                300 |
+|-------+--------------------|
+
+We'll consider the price of each stock over two days:
+
+#+NAME: Stock Prices
+#+TBLNAME: prices
+| Stock | Price Day 1 ($) | Price Day 2 ($) |
+|-------+-----------------+-----------------|
+| A     |             200 |             190 |
+| B     |              30 |              35 |
+|-------+-----------------+-----------------|
+
+** Price-Weighted Index (DJIA)
+
+To construct a price-weighted index we can simply average the prices.
+
+#+NAME: Price-Weighted Index
+#+TBLNAME: price-index
+|      Day |  Index Value |
+|----------+--------------|
+|        1 |          115 |
+|        2 |        112.5 |
+|----------+--------------|
+| % Change | -0.021739130 |
+|----------+--------------|
+#+TBLFM: @2$2=(remote(prices,@2$2)+remote(prices,@3$2))/2::@3$2=(remote(prices,@2$3)+remote(prices,@3$3))/2::@4$2=@3$2/@2$2 - 1
+
+** Value-Weighted (S&P 500)
+
+#+TBLNAME: value-index
+|      Day | Market Cap A | Market Cap B | Total Market Cap | Index Value |
+|----------+--------------+--------------+------------------+-------------|
+|        1 |        10000 |         9000 |            19000 |         100 |
+|        2 |         9500 |        10500 |            20000 |   105.26316 |
+|----------+--------------+--------------+------------------+-------------|
+| % Change |              |              |                  |   0.0526316 |
+|----------+--------------+--------------+------------------+-------------|
+#+TBLFM: @2$2=(remote(prices,@2$2)*remote(shares,@2$2))::@2$3=(remote(prices,@3$2)*remote(shares,@3$2))::@3$2=(remote(prices,@2$3)*remote(shares,@2$2))::@3$3=(remote(prices,@3$3)*remote(shares,@3$2))::@2$4=@2$2+@2$3::@3$4=@3$2+@3$3::@3$5=(@3$4/@2$4)*@2$5::@4$5=@3$5/@2$5-1
+
+
+** Index Creation
+
+$100*\frac{P_1}{P_0}\frac{P_2}{P_1}\frac{P_3}{P_2}\frac{P_4}{P_3}\frac{P_5}{P_4} = 100\frac{P_5}{P_0}$
+
