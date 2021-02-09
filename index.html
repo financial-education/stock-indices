@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-02-08 Mon 13:17 -->
+<!-- 2021-02-09 Tue 11:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Stock Market Indices</title>
@@ -262,17 +262,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org76815f2">1. Price-Weighted Index (DJIA)</a></li>
-<li><a href="#orgba3405a">2. Value-Weighted (S&amp;P 500)</a></li>
-<li><a href="#org821644c">3. Index Creation</a></li>
+<li><a href="#orgd9d1c87">1. Price-Weighted Index (DJIA)</a></li>
+<li><a href="#org0f96830">2. Value-Weighted (S&amp;P 500)</a></li>
+<li><a href="#orgbd8abd1">3. Index Creation</a></li>
 </ul>
 </div>
 </div>
 <p>
-Say our index covers two stocks (A and B) with the following number of shares outstanding.
+Here we'll take a look at price and value-weighted stock indices. Say our index covers two stocks (A and B) with the following number of shares outstanding.
 </p>
 
-<table id="orgd53e9bb" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org50a4c08" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
@@ -300,10 +300,10 @@ Say our index covers two stocks (A and B) with the following number of shares ou
 </table>
 
 <p>
-The price of each stock over two days is:
+We'll consider the price of each stock over two days:
 </p>
 
-<table id="org772ae70" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org0515c00" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
@@ -335,10 +335,47 @@ The price of each stock over two days is:
 </tbody>
 </table>
 
-<div id="outline-container-org76815f2" class="outline-2">
-<h2 id="org76815f2"><span class="section-number-2">1</span> Price-Weighted Index (DJIA)</h2>
+<div id="outline-container-orgd9d1c87" class="outline-2">
+<h2 id="orgd9d1c87"><span class="section-number-2">1</span> Price-Weighted Index (DJIA)</h2>
 <div class="outline-text-2" id="text-1">
-<table id="org45d1dcf" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<p>
+To construct a price-weighted index we can simply average the prices each day (sum them and here divide by 2).  The only complication arises when a stock in the index splits.  We don't want the split to affect the index value, so we adjust the divisor.  
+</p>
+
+<p>
+For example, say stock A splits on day 2.  For the index value to stay the same, we have to make the divisor (d):
+</p>
+
+<p>
+\[112.5=\frac{35 + 95}{d} \Rightarrow d = \frac{130}{112.5} = 1.1555\]
+</p>
+
+<p>
+Obviously, in a price-weighted index 
+</p>
+
+<blockquote>
+<p>
+The stock with the highest price has the largest effect on the index.
+</p>
+</blockquote>
+
+<p>
+This may be undesirable, depending on your use for the index, because a stock's price is not a meaningful value&#x2014;a high price does not mean a large market cap.
+</p>
+
+<p>
+A price weighted-index tracks:
+</p>
+
+<blockquote>
+<p>
+The performance of a portfolio comprised of one share of each stock in the index.
+</p>
+</blockquote>
+
+
+<table id="org1fa6d14" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
@@ -373,10 +410,10 @@ The price of each stock over two days is:
 </div>
 </div>
 
-<div id="outline-container-orgba3405a" class="outline-2">
-<h2 id="orgba3405a"><span class="section-number-2">2</span> Value-Weighted (S&amp;P 500)</h2>
+<div id="outline-container-org0f96830" class="outline-2">
+<h2 id="org0f96830"><span class="section-number-2">2</span> Value-Weighted (S&amp;P 500)</h2>
 <div class="outline-text-2" id="text-2">
-<table id="orge477719" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org51f9cc5" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
@@ -430,8 +467,8 @@ The price of each stock over two days is:
 </div>
 
 
-<div id="outline-container-org821644c" class="outline-2">
-<h2 id="org821644c"><span class="section-number-2">3</span> Index Creation</h2>
+<div id="outline-container-orgbd8abd1" class="outline-2">
+<h2 id="orgbd8abd1"><span class="section-number-2">3</span> Index Creation</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 \(100*\frac{P_1}{P_0}\frac{P_2}{P_1}\frac{P_3}{P_2}\frac{P_4}{P_3}\frac{P_5}{P_4} = 100\frac{P_5}{P_0}\)
@@ -441,7 +478,7 @@ The price of each stock over two days is:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2021-02-08 Mon 13:17</p>
+<p class="date">Created: 2021-02-09 Tue 11:56</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

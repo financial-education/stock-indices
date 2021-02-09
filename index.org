@@ -23,7 +23,26 @@ We'll consider the price of each stock over two days:
 
 ** Price-Weighted Index (DJIA)
 
-To construct a price-weighted index we can simply average the prices.
+To construct a price-weighted index we can simply average the prices each day (sum them and here divide by 2).  The only complication arises when a stock in the index splits.  We don't want the split to affect the index value, so we adjust the divisor.  
+
+For example, say stock A splits on day 2.  For the index value to stay the same, we have to make the divisor (d):
+
+$$112.5=\frac{35 + 95}{d} \Rightarrow d = \frac{130}{112.5} = 1.1555$$
+
+Obviously, in a price-weighted index 
+
+#+BEGIN_QUOTE
+The stock with the highest price has the largest effect on the index.
+#+END_QUOTE
+
+This may be undesirable, depending on your use for the index, because a stock's price is not a meaningful value---a high price does not mean a large market cap.
+
+A price weighted-index tracks:
+
+#+BEGIN_QUOTE
+The performance of a portfolio comprised of one share of each stock in the index.
+#+END_QUOTE
+
 
 #+NAME: Price-Weighted Index
 #+TBLNAME: price-index
