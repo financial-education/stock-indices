@@ -57,7 +57,11 @@ The performance of a portfolio comprised of one share of each stock in the index
 
 ** Value-Weighted (S&P 500)
 
-A value-weighted index considers the market cap of a firm, rather than its price.  This is a more reasonable measure than price.  Note the market cap of a firm is not its total size (which is the enterprise value and includes debt).  
+A value-weighted index considers the market cap of a firm, rather than its price.  This is a more reasonable measure than price.  Note the market cap of a firm is not its total size (which is the enterprise value and includes debt).
+
+#+BEGIN_QUOTE
+The stock with the highest market cap has the largest effect on the index.
+#+END_QUOTE
 
 Generally, the larger your portfolio the more similar your portfolio weights for each stock will be to the weights in the market index.  This is why the performance of large portfolios are compared to the market index (which is value-weighted).
 
@@ -74,5 +78,12 @@ Generally, the larger your portfolio the more similar your portfolio weights for
 
 *** Index Creation
 
+To create a market-value index we choose some start date and starting value---commonly 100. 
+
  $100*\frac{P_1}{P_0}\frac{P_2}{P_1}\frac{P_3}{P_2}\frac{P_4}{P_3}\frac{P_5}{P_4} = 100\frac{P_5}{P_0}$
+
+
+** Equal-Weight Indices
+
+There is a class of indices where each asset in the index has an equal weight in the index value. These indices are fairly unimportant.  
 
