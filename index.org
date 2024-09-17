@@ -57,6 +57,10 @@ The performance of a portfolio comprised of one share of each stock in the index
 
 ** Value-Weighted (S&P 500)
 
+A value-weighted index considers the market cap of a firm, rather than its price.  This is a more reasonable measure than price.  Note the market cap of a firm is not its total size (which is the enterprise value and includes debt).  
+
+Generally, the larger your portfolio the more similar your portfolio weights for each stock will be to the weights in the market index.  This is why the performance of large portfolios are compared to the market index (which is value-weighted).
+
 #+TBLNAME: value-index
 |      Day | Market Cap A | Market Cap B | Total Market Cap | Index Value |
 |----------+--------------+--------------+------------------+-------------|
@@ -68,7 +72,7 @@ The performance of a portfolio comprised of one share of each stock in the index
 #+TBLFM: @2$2=(remote(prices,@2$2)*remote(shares,@2$2))::@2$3=(remote(prices,@3$2)*remote(shares,@3$2))::@3$2=(remote(prices,@2$3)*remote(shares,@2$2))::@3$3=(remote(prices,@3$3)*remote(shares,@3$2))::@2$4=@2$2+@2$3::@3$4=@3$2+@3$3::@3$5=(@3$4/@2$4)*@2$5::@4$5=@3$5/@2$5-1
 
 
-** Index Creation
+*** Index Creation
 
-$100*\frac{P_1}{P_0}\frac{P_2}{P_1}\frac{P_3}{P_2}\frac{P_4}{P_3}\frac{P_5}{P_4} = 100\frac{P_5}{P_0}$
+ $100*\frac{P_1}{P_0}\frac{P_2}{P_1}\frac{P_3}{P_2}\frac{P_4}{P_3}\frac{P_5}{P_4} = 100\frac{P_5}{P_0}$
 
